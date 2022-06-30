@@ -1,12 +1,12 @@
 console.log("Ejercicio 1")
 function numDuplicados(string) {
     array = []
-    con = 0
+    con = 0 // Contador
 
     for (let i in string) {
-        if (!array.includes(string[i]) &&
-            string.indexOf(string[i]) !== string.lastIndexOf(string[i])) {
-            array.push(string[i])
+        if (!array.includes(string[i]) && // Verifica si existe un elemento del string dentro de un array vacio
+            string.indexOf(string[i]) !== string.lastIndexOf(string[i])) { // Verifica si un elemento se repite más de una vez
+            array.push(string[i]) // Agrega el elemento del string al array vacio para que posteriormente no se repita en la primera condición
             con++
         }
     }
@@ -20,16 +20,16 @@ console.log(numDuplicados("abc")); // 0
 
 console.log("Ejercicio 2")
 function frecuencias(string) {
-    str = string.toLowerCase()
-    str = str.replace(/\s/g, "")
+    str = string.toLowerCase() // Coloca todos los elementos del string en minúscula 
+    str = str.replace(/\s/g, "") // Borra todos los espacios del string 
 
     obj = {}
 
     for (let i in str) {
-        if (obj.hasOwnProperty(str[i]))
-            obj[str[i]]++
+        if (obj.hasOwnProperty(str[i])) // Verifica si un elemento existe dentro del objeto
+            obj[str[i]]++ // Si el elemento existe, le suma +1 al contador
         else
-            obj[str[i]] = 1
+            obj[str[i]] = 1 // Si el elemento no existe, lo agrega con un contador +1
     }
 
     return obj
@@ -43,11 +43,11 @@ console.log(frecuencias("anita lava la tina"));
 console.log("Ejercicio 3")
 function caracteresEnComun(str1, str2) {
 
-    array1 = str1.split('')
+    array1 = str1.split('') // Separa el string
     array2 = str2.split('')
     result = []
 
-    result = array1.filter(element => array2.includes(element))
+    result = array1.filter(element => array2.includes(element)) // Verifica si los elementos del primer array se encuentra en el segundo
 
     return result
 }
@@ -79,7 +79,7 @@ console.log(`${ajustarTexto("Hola", 5)}`) // "Hola "
 
 console.log("Ejercicio LeetCode 1")
 var isAnagram = function (s, t) {
-    t_sort = t.split("").sort().join("")
+    t_sort = t.split("").sort().join("") // Separa el string y lo orgarniza
     s_sort = s.split("").sort().join("")
 
     if (s_sort === t_sort)
@@ -95,7 +95,7 @@ console.log("Ejercicio LeetCode 2")
 var moveZeroes = function (nums) {
     let aux
     let n = nums.length
-
+// Método Burbuja pero con el condicional === para los 0
     for (let i = 1; i < n; i++) {
         for (let j = 0; j < (n - i); j++) {
             if (nums[j] === 0) {
